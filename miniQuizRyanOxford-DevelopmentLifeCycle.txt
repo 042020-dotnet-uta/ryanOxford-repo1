@@ -1,0 +1,36 @@
+Software Development Cycle Quiz
+
+Question 1:
+Which of these questions is NOT a key question for anchor point milestones for the spiral model?
+A. Life Cycle Objectives
+B. Life Cycle Architecture
+C. Life Cycle Obstacles (Correct)
+D. Initial Operational Capability
+
+Question 2:
+Which of these is NOT a astage of verification phase for the V-model?
+A. System testing
+B. Integration testing
+C. User Interface testing (Correct)
+D. Unit testing
+
+Question 3:
+What is one of the advantages of using the Big Bang model?
+A. Rigid structure
+B. Lots of planning required
+C. Easy to Manage (Correct)
+D. Well suited for complex and object-oriented projects
+
+Question 4:
+Which of these is considered an attribue of value-driven methods?
+A. Small number of developers (Correct)
+B. Culture that demands order
+C. Requirements do not often change
+D. Consists of mostly junior developers
+
+Question 5:
+For the unofficial guide to CMMI "Security by Design with CMMI for development, Version 1.3", which of these is NOT a process area?
+A. OPSD - Organisational Preparedness for Secure Development
+B. SMP - Secure Management in Projects
+C. SUC - Secure User Concepts
+D. SVV - Security Verification and Validation
