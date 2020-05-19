@@ -1,0 +1,11 @@
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\bin\Debug\GettingStartedHost.exe.config
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\bin\Debug\GettingStartedHost.exe
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\bin\Debug\GettingStartedHost.pdb
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\bin\Debug\GettingStartedLib.dll
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\bin\Debug\GettingStartedLib.pdb
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\bin\Debug\GettingStartedLib.dll.config
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\obj\Debug\GettingStartedHost.csprojAssemblyReference.cache
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\obj\Debug\GettingStartedHost.csproj.CoreCompileInputs.cache
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\obj\Debug\GettingStartedHost.csproj.CopyComplete
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\obj\Debug\GettingStartedHost.exe
+C:\Users\Try hard\source\repos\GettingStarted\GettingStartedHost\obj\Debug\GettingStartedHost.pdb
