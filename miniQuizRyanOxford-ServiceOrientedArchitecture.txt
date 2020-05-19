@@ -1,0 +1,35 @@
+Service Oriented Architecture Quiz
+Question 1:
+Which of the following is NOT a major difficulty of Service Oriented Architecture?
+A. Heterogeneity and complexity of solution
+B. Inclusion of services from different and competing vendors
+C. Huge set of testing combinations due to integration of autonomous services
+D. Leads to tightly coupled implementations (Correct)
+
+Question 2:
+Which of the following is NOT a SOA based technology?
+A. SOAP
+B. SORCER
+C. Docker (Correct)
+D. Apache Thrift
+
+Question 3:
+A service consumer-provider relationship is governed by this:
+A. API
+B. Standardized Service Contract (Correct)
+C. Controller
+D. Proxy
+
+Question 4:
+Which of the following is NOT a business advantage to using SOA?
+A. Flexibility
+B. Low Latency (Correct)
+C. Legacy code integration
+D. Lower development costs
+
+Question 5:
+What is the concept of interconnecting components in a system so the elements depend on each other to the least extent practicable?
+A. Component Distancing
+B. Tight Coupling
+C. Loose Coupling (Correct)
+D. Element defragging
