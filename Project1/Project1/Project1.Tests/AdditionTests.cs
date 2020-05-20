@@ -61,5 +61,28 @@ namespace Project1.Tests
                 Assert.Single(context.Products);
             }
         }
+        [Fact]
+        public void AddLocationToDBTest()
+        {
+            //Arrange
+            var options = new DbContextOptionsBuilder<StoreDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddLocationToDbTest").Options;
+            //Act
+            using (var db = new StoreDbContext(options))
+            {
+                Location p = new Location
+                {
+                    Name = "Test Product"
+                };
+                db.AddAsync(p);
+                db.SaveChangesAsync();
+            }
+            using (var context = new StoreDbContext(options))
+            {
+                Assert.Single(context.Products);
+            }
+        }
+
+
     }
 }
