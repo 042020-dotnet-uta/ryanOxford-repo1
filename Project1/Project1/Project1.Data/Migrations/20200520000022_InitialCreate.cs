@@ -13,9 +13,9 @@ namespace Project1.Data.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FName = table.Column<string>(nullable: true),
+                    FName = table.Column<string>(nullable: false),
                     LName = table.Column<string>(nullable: false),
-                    Address1 = table.Column<string>(nullable: false),
+                    Address1 = table.Column<string>(nullable: true),
                     Address2 = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
                     State = table.Column<string>(nullable: true),
@@ -47,8 +47,9 @@ namespace Project1.Data.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(8,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,8 +62,8 @@ namespace Project1.Data.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerID = table.Column<int>(nullable: true),
-                    LocationID = table.Column<int>(nullable: true),
+                    CustomerID = table.Column<int>(nullable: false),
+                    LocationID = table.Column<int>(nullable: false),
                     Created = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -73,13 +74,13 @@ namespace Project1.Data.Migrations
                         column: x => x.CustomerID,
                         principalTable: "Customers",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Orders_Locations_LocationID",
                         column: x => x.LocationID,
                         principalTable: "Locations",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -88,8 +89,8 @@ namespace Project1.Data.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LocationID = table.Column<int>(nullable: true),
-                    ProductID = table.Column<int>(nullable: true),
+                    LocationID = table.Column<int>(nullable: false),
+                    ProductID = table.Column<int>(nullable: false),
                     Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -100,13 +101,13 @@ namespace Project1.Data.Migrations
                         column: x => x.LocationID,
                         principalTable: "Locations",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Inventory_Products_ProductID",
                         column: x => x.ProductID,
                         principalTable: "Products",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

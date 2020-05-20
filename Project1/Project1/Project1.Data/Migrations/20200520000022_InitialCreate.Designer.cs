@@ -10,7 +10,7 @@ using Project1.Data;
 namespace Project1.Data.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20200519145031_InitialCreate")]
+    [Migration("20200520000022_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,6 @@ namespace Project1.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address1")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Address2")
@@ -42,6 +41,7 @@ namespace Project1.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LName")
@@ -69,10 +69,10 @@ namespace Project1.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("LocationID")
+                    b.Property<int>("LocationID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProductID")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -112,10 +112,10 @@ namespace Project1.Data.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerID")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("LocationID")
+                    b.Property<int>("LocationID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -160,10 +160,15 @@ namespace Project1.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(8,2)");
 
                     b.HasKey("ID");
 
@@ -174,22 +179,30 @@ namespace Project1.Data.Migrations
                 {
                     b.HasOne("Project1.Data.Location", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationID");
+                        .HasForeignKey("LocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Project1.Data.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID");
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Project1.Data.Order", b =>
                 {
                     b.HasOne("Project1.Data.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerID");
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Project1.Data.Location", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationID");
+                        .HasForeignKey("LocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Project1.Data.OrderProduct", b =>

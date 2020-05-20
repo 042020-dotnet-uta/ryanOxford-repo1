@@ -1,62 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://Microsoft.ServiceModel.Samples" elementFormDefault="qualified" targetNamespace="http://Microsoft.ServiceModel.Samples" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Add">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/GettingStartedLib" />
+  <xs:element name="AddToList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="n1" type="xs:double" />
-        <xs:element minOccurs="0" name="n2" type="xs:double" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/GettingStartedLib" minOccurs="0" name="fruits" nillable="true" type="q1:ArrayOfFruit" />
+        <xs:element minOccurs="0" name="fruit" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddResponse">
+  <xs:element name="AddToListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddResult" type="xs:double" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/GettingStartedLib" minOccurs="0" name="AddToListResult" nillable="true" type="q2:ArrayOfFruit" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Subtract">
+  <xs:element name="ExtractFromList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="n1" type="xs:double" />
-        <xs:element minOccurs="0" name="n2" type="xs:double" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GettingStartedLib" minOccurs="0" name="fruits" nillable="true" type="q3:ArrayOfFruit" />
+        <xs:element minOccurs="0" name="fruit" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SubtractResponse">
+  <xs:element name="ExtractFromListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SubtractResult" type="xs:double" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GettingStartedLib" minOccurs="0" name="ExtractFromListResult" nillable="true" type="q4:Fruit" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Multiply">
+  <xs:element name="CountList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="n1" type="xs:double" />
-        <xs:element minOccurs="0" name="n2" type="xs:double" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GettingStartedLib" minOccurs="0" name="fruits" nillable="true" type="q5:ArrayOfFruit" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="MultiplyResponse">
+  <xs:element name="CountListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="MultiplyResult" type="xs:double" />
+        <xs:element minOccurs="0" name="CountListResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Divide">
+  <xs:element name="CreateFruit">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="n1" type="xs:double" />
-        <xs:element minOccurs="0" name="n2" type="xs:double" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DivideResponse">
+  <xs:element name="CreateFruitResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="DivideResult" type="xs:double" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/GettingStartedLib" minOccurs="0" name="CreateFruitResult" nillable="true" type="q6:Fruit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/GettingStartedLib" minOccurs="0" name="CreateListResult" nillable="true" type="q7:ArrayOfFruit" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

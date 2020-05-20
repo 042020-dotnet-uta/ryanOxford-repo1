@@ -11,8 +11,11 @@ namespace Project1.Data
     /// </summary>
     public class Order
     {
+        [Key]
         public int ID { get; set; }
+        [Required]
         public Customer Customer { get; set; }
+        [Required]
         public Location Location { get; set; }
         public ICollection<OrderProduct> Products { get; set; }
         [DataType(DataType.DateTime)]

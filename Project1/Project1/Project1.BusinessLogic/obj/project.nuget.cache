@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LpTcRQ0RUKX78l3AFfsEtlTe6Vukei3uPrFebJdXUnzIE3theJf3FDz/hepJ3py+1p3IHMsPtbzercLbUlEsxA==",
+  "dgSpecHash": "Jvw6/E3E6ZoUDMbgzWszCz0/Q9PaY22jxbSrqS3InFlMQxrgpuH397sM+STPnQXzRkqFEYJKWNuQ8BkruU6J8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Try hard\\Desktop\\Rev Repo\\ryanOxford-repo1\\Project1\\Project1\\Project1.BusinessLogic\\Project1.BusinessLogic.csproj",
   "expectedPackageFiles": [
@@ -91,7 +91,8 @@
     "C:\\Users\\Try hard\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Try hard\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Try hard\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Try hard\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\Try hard\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\Try hard\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace GettingStartedLib
@@ -7,12 +8,14 @@ namespace GettingStartedLib
     public interface ICalculator
     {
         [OperationContract]
-        double Total();
+        List<Fruit> AddToList(List<Fruit> fruits, string fruit);
         [OperationContract]
-        double Subtract(double n1, double n2);
+        Fruit ExtractFromList(List<Fruit> fruits, string fruit);
         [OperationContract]
-        double Multiply(double n1, double n2);
+        int CountList(List<Fruit> fruits);
         [OperationContract]
-        double Divide(double n1, double n2);
+        Fruit CreateFruit(string name);
+        [OperationContract]
+        List<Fruit> CreateList();
     }
 }

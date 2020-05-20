@@ -9,35 +9,88 @@
 //------------------------------------------------------------------------------
 
 namespace GettingStartedClient.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Fruit", Namespace="http://schemas.datacontract.org/2004/07/GettingStartedLib")]
+    [System.SerializableAttribute()]
+    public partial class Fruit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://Microsoft.ServiceModel.Samples", ConfigurationName="ServiceReference1.ICalculator")]
     public interface ICalculator {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Add", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/AddResponse")]
-        double Add(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/AddToList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/AddToListResponse")]
+        GettingStartedClient.ServiceReference1.Fruit[] AddToList(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Add", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/AddResponse")]
-        System.Threading.Tasks.Task<double> AddAsync(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/AddToList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/AddToListResponse")]
+        System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit[]> AddToListAsync(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Subtract", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/SubtractResponse")]
-        double Subtract(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/ExtractFromList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/ExtractFromListResponse")]
+        GettingStartedClient.ServiceReference1.Fruit ExtractFromList(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Subtract", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/SubtractResponse")]
-        System.Threading.Tasks.Task<double> SubtractAsync(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/ExtractFromList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/ExtractFromListResponse")]
+        System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit> ExtractFromListAsync(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Multiply", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/MultiplyResponse")]
-        double Multiply(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/CountList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/CountListResponse")]
+        int CountList(GettingStartedClient.ServiceReference1.Fruit[] fruits);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Multiply", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/MultiplyResponse")]
-        System.Threading.Tasks.Task<double> MultiplyAsync(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/CountList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/CountListResponse")]
+        System.Threading.Tasks.Task<int> CountListAsync(GettingStartedClient.ServiceReference1.Fruit[] fruits);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Divide", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/DivideResponse")]
-        double Divide(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateFruit", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/CreateFruitResponse")]
+        GettingStartedClient.ServiceReference1.Fruit CreateFruit(string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/Divide", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/DivideResponse")]
-        System.Threading.Tasks.Task<double> DivideAsync(double n1, double n2);
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateFruit", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/CreateFruitResponse")]
+        System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit> CreateFruitAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/CreateListResponse")]
+        GettingStartedClient.ServiceReference1.Fruit[] CreateList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateList", ReplyAction="http://Microsoft.ServiceModel.Samples/ICalculator/CreateListResponse")]
+        System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit[]> CreateListAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,36 +120,44 @@ namespace GettingStartedClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public double Add(double n1, double n2) {
-            return base.Channel.Add(n1, n2);
+        public GettingStartedClient.ServiceReference1.Fruit[] AddToList(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit) {
+            return base.Channel.AddToList(fruits, fruit);
         }
         
-        public System.Threading.Tasks.Task<double> AddAsync(double n1, double n2) {
-            return base.Channel.AddAsync(n1, n2);
+        public System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit[]> AddToListAsync(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit) {
+            return base.Channel.AddToListAsync(fruits, fruit);
         }
         
-        public double Subtract(double n1, double n2) {
-            return base.Channel.Subtract(n1, n2);
+        public GettingStartedClient.ServiceReference1.Fruit ExtractFromList(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit) {
+            return base.Channel.ExtractFromList(fruits, fruit);
         }
         
-        public System.Threading.Tasks.Task<double> SubtractAsync(double n1, double n2) {
-            return base.Channel.SubtractAsync(n1, n2);
+        public System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit> ExtractFromListAsync(GettingStartedClient.ServiceReference1.Fruit[] fruits, string fruit) {
+            return base.Channel.ExtractFromListAsync(fruits, fruit);
         }
         
-        public double Multiply(double n1, double n2) {
-            return base.Channel.Multiply(n1, n2);
+        public int CountList(GettingStartedClient.ServiceReference1.Fruit[] fruits) {
+            return base.Channel.CountList(fruits);
         }
         
-        public System.Threading.Tasks.Task<double> MultiplyAsync(double n1, double n2) {
-            return base.Channel.MultiplyAsync(n1, n2);
+        public System.Threading.Tasks.Task<int> CountListAsync(GettingStartedClient.ServiceReference1.Fruit[] fruits) {
+            return base.Channel.CountListAsync(fruits);
         }
         
-        public double Divide(double n1, double n2) {
-            return base.Channel.Divide(n1, n2);
+        public GettingStartedClient.ServiceReference1.Fruit CreateFruit(string name) {
+            return base.Channel.CreateFruit(name);
         }
         
-        public System.Threading.Tasks.Task<double> DivideAsync(double n1, double n2) {
-            return base.Channel.DivideAsync(n1, n2);
+        public System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit> CreateFruitAsync(string name) {
+            return base.Channel.CreateFruitAsync(name);
+        }
+        
+        public GettingStartedClient.ServiceReference1.Fruit[] CreateList() {
+            return base.Channel.CreateList();
+        }
+        
+        public System.Threading.Tasks.Task<GettingStartedClient.ServiceReference1.Fruit[]> CreateListAsync() {
+            return base.Channel.CreateListAsync();
         }
     }
 }

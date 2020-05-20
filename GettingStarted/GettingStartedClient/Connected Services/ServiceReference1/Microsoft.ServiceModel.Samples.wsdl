@@ -4,48 +4,59 @@
     <xsd:schema targetNamespace="http://Microsoft.ServiceModel.Samples/Imports">
       <xsd:import namespace="http://Microsoft.ServiceModel.Samples" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/GettingStartedLib" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ICalculator_Add_InputMessage">
-    <wsdl:part name="parameters" element="tns:Add" />
+  <wsdl:message name="ICalculator_AddToList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddToList" />
   </wsdl:message>
-  <wsdl:message name="ICalculator_Add_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddResponse" />
+  <wsdl:message name="ICalculator_AddToList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddToListResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalculator_Subtract_InputMessage">
-    <wsdl:part name="parameters" element="tns:Subtract" />
+  <wsdl:message name="ICalculator_ExtractFromList_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExtractFromList" />
   </wsdl:message>
-  <wsdl:message name="ICalculator_Subtract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SubtractResponse" />
+  <wsdl:message name="ICalculator_ExtractFromList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExtractFromListResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalculator_Multiply_InputMessage">
-    <wsdl:part name="parameters" element="tns:Multiply" />
+  <wsdl:message name="ICalculator_CountList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountList" />
   </wsdl:message>
-  <wsdl:message name="ICalculator_Multiply_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MultiplyResponse" />
+  <wsdl:message name="ICalculator_CountList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountListResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalculator_Divide_InputMessage">
-    <wsdl:part name="parameters" element="tns:Divide" />
+  <wsdl:message name="ICalculator_CreateFruit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFruit" />
   </wsdl:message>
-  <wsdl:message name="ICalculator_Divide_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DivideResponse" />
+  <wsdl:message name="ICalculator_CreateFruit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateFruitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalculator_CreateList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateList" />
+  </wsdl:message>
+  <wsdl:message name="ICalculator_CreateList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateListResponse" />
   </wsdl:message>
   <wsdl:portType name="ICalculator">
-    <wsdl:operation name="Add">
-      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/Add" message="tns:ICalculator_Add_InputMessage" />
-      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/AddResponse" message="tns:ICalculator_Add_OutputMessage" />
+    <wsdl:operation name="AddToList">
+      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/AddToList" message="tns:ICalculator_AddToList_InputMessage" />
+      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/AddToListResponse" message="tns:ICalculator_AddToList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Subtract">
-      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/Subtract" message="tns:ICalculator_Subtract_InputMessage" />
-      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/SubtractResponse" message="tns:ICalculator_Subtract_OutputMessage" />
+    <wsdl:operation name="ExtractFromList">
+      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/ExtractFromList" message="tns:ICalculator_ExtractFromList_InputMessage" />
+      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/ExtractFromListResponse" message="tns:ICalculator_ExtractFromList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Multiply">
-      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/Multiply" message="tns:ICalculator_Multiply_InputMessage" />
-      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/MultiplyResponse" message="tns:ICalculator_Multiply_OutputMessage" />
+    <wsdl:operation name="CountList">
+      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/CountList" message="tns:ICalculator_CountList_InputMessage" />
+      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/CountListResponse" message="tns:ICalculator_CountList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Divide">
-      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/Divide" message="tns:ICalculator_Divide_InputMessage" />
-      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/DivideResponse" message="tns:ICalculator_Divide_OutputMessage" />
+    <wsdl:operation name="CreateFruit">
+      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateFruit" message="tns:ICalculator_CreateFruit_InputMessage" />
+      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateFruitResponse" message="tns:ICalculator_CreateFruit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateList">
+      <wsdl:input wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateList" message="tns:ICalculator_CreateList_InputMessage" />
+      <wsdl:output wsaw:Action="http://Microsoft.ServiceModel.Samples/ICalculator/CreateListResponse" message="tns:ICalculator_CreateList_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

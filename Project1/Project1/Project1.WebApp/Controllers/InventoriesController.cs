@@ -20,7 +20,7 @@ namespace Project1.WebApp.Controllers
         }
 
         // GET: Inventories
-        public async Task<IActionResult> Index(string inventoryLocation, string searchString)
+        public async Task<IActionResult> Index(string productLocation, string searchString)
         {
             IQueryable<string> locationQuery = from l in _context.Inventory
                                                orderby l.Location.Name
@@ -30,16 +30,16 @@ namespace Project1.WebApp.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                inventories = inventories.Where(s => s.Product.Name.Contains(searchString));
+                inventories = inventories.Where(s => s.Product.Name.Contains(searchString)).OrderBy(s => s.Product.Name);
             }
-            if (!string.IsNullOrEmpty(inventoryLocation))
+            if (!string.IsNullOrEmpty(productLocation))
             {
-                inventories = inventories.Where(x => x.Location.Name == inventoryLocation);
+                inventories = inventories.Where(x => x.Location.Name == productLocation);
             }
             var inventoryVM = new InventoryViewModel
             {
                 Locations = new SelectList(await locationQuery.Distinct().ToListAsync()),
-                InventoryItems = await inventories.ToListAsync()
+                InventoryItems = await inventories.OrderBy(s => s.Location.Name).ThenBy(l => l.Product.Name).ToListAsync()
                 
                 
             };
@@ -94,8 +94,17 @@ namespace Project1.WebApp.Controllers
                 var inventoryCheck = await _context.Inventory.Where(x => x.Location.Name == inventoryCreateVM.InventoryLocation && x.Product.Name == inventoryCreateVM.InventoryProduct).FirstOrDefaultAsync();
                 if (inventoryCheck != null)
                 {
-                    inventoryCreateVM.ErrorMessage = "An inventory for this product at this location already exists.";
-                    return View(inventoryCreateVM);
+                    try
+                    {
+                        inventoryCheck.Quantity += inventoryCreateVM.Quantity;
+                        //inventoryCreateVM.ErrorMessage = "An inventory for this product at this location already exists.";
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateException)
+                    {
+                        return NotFound();
+                    }
+                    return RedirectToAction(nameof(Index));
                 }
                 var inventory = new Inventory
                 {

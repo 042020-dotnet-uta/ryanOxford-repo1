@@ -192,3 +192,6 @@ C:\Users\Try hard\Desktop\Rev Repo\ryanOxford-repo1\Project1\Project1\Project1.W
 C:\Users\Try hard\Desktop\Rev Repo\ryanOxford-repo1\Project1\Project1\Project1.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
 C:\Users\Try hard\Desktop\Rev Repo\ryanOxford-repo1\Project1\Project1\Project1.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\Try hard\Desktop\Rev Repo\ryanOxford-repo1\Project1\Project1\Project1.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Orders\History.cshtml.g.cs
+C:\Users\Try hard\Desktop\Rev Repo\ryanOxford-repo1\Project1\Project1\Project1.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Orders\ViewNewOrder.cshtml.g.cs
+C:\Users\Try hard\Desktop\Rev Repo\ryanOxford-repo1\Project1\Project1\Project1.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Orders\AddProduct.cshtml.g.cs
+C:\Users\Try hard\Desktop\Rev Repo\ryanOxford-repo1\Project1\Project1\Project1.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Orders\CompleteOrder.cshtml.g.cs

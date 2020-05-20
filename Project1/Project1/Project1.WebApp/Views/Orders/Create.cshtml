@@ -1,4 +1,4 @@
-﻿@model Project1.Data.Order
+﻿@model Project1.WebApp.Models.OrderCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,12 +13,49 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Created" class="control-label"></label>
-                <input asp-for="Created" class="form-control" />
-                <span asp-validation-for="Created" class="text-danger"></span>
+                Location:
+                <select asp-for="LocationName" asp-items="Model.Locations">
+                    <option value="" selected disabled hidden>-Select a location-</option>
+                </select>
+                <span asp-validation-for="LocationName" class="text-danger"></span>
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Customers[0].FName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Customers[0].LName)
+                            </th>
+                            <th>
+                                Select
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Customers)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LName)
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                    <input type="radio" asp-for="CustomerID" value="@item.ID">
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>  
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Start Order" class="btn btn-primary" />
             </div>
         </form>
     </div>

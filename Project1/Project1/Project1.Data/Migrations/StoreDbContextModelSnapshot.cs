@@ -27,7 +27,6 @@ namespace Project1.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address1")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Address2")
@@ -40,6 +39,7 @@ namespace Project1.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LName")
@@ -67,10 +67,10 @@ namespace Project1.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("LocationID")
+                    b.Property<int>("LocationID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProductID")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -110,10 +110,10 @@ namespace Project1.Data.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerID")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("LocationID")
+                    b.Property<int>("LocationID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -132,13 +132,16 @@ namespace Project1.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("OrderID")
+                    b.Property<int>("OrderID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProductID")
+                    b.Property<int>("ProductID")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TempOrderID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -146,6 +149,8 @@ namespace Project1.Data.Migrations
                     b.HasIndex("OrderID");
 
                     b.HasIndex("ProductID");
+
+                    b.HasIndex("TempOrderID");
 
                     b.ToTable("OrderProducts");
                 });
@@ -158,47 +163,148 @@ namespace Project1.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(8,2)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Project1.Data.TempOrder", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LocationID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.HasIndex("LocationID");
+
+                    b.ToTable("TempOrders");
+                });
+
+            modelBuilder.Entity("Project1.Data.TempOrderProduct", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TempOrderID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductID");
+
+                    b.HasIndex("TempOrderID");
+
+                    b.ToTable("TempOrderProducts");
+                });
+
             modelBuilder.Entity("Project1.Data.Inventory", b =>
                 {
                     b.HasOne("Project1.Data.Location", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationID");
+                        .HasForeignKey("LocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Project1.Data.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID");
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Project1.Data.Order", b =>
                 {
                     b.HasOne("Project1.Data.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerID");
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Project1.Data.Location", "Location")
                         .WithMany()
-                        .HasForeignKey("LocationID");
+                        .HasForeignKey("LocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Project1.Data.OrderProduct", b =>
                 {
                     b.HasOne("Project1.Data.Order", "Order")
                         .WithMany("Products")
-                        .HasForeignKey("OrderID");
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Project1.Data.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID");
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project1.Data.TempOrder", null)
+                        .WithMany("Products")
+                        .HasForeignKey("TempOrderID");
+                });
+
+            modelBuilder.Entity("Project1.Data.TempOrder", b =>
+                {
+                    b.HasOne("Project1.Data.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project1.Data.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Project1.Data.TempOrderProduct", b =>
+                {
+                    b.HasOne("Project1.Data.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project1.Data.TempOrder", "TempOrder")
+                        .WithMany()
+                        .HasForeignKey("TempOrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

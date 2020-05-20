@@ -1,46 +1,50 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace GettingStartedLib
 {
     public class CalculatorService : ICalculator
-    {
-        public class Fruit
+    {        
+        public Fruit CreateFruit(string fruit)
         {
-            public string Name { get; set; }
-            public int Quantity { get; set; }
+            Fruit newFruit = new Fruit { Name = fruit };
+            return newFruit;
         }
-        public double Add(double n1, double n2)
+        public List<Fruit> AddToList(List<Fruit> fruits, string fruitName)
         {
-            double result = n1 + n2;
-            Console.WriteLine("Received Add({0},{1})", n1, n2);
-            // Code added to write output to the console window.
-            Console.WriteLine("Return: {0}", result);
-            return result;
+            fruits.Add(CreateFruit(fruitName));
+            return fruits;
         }
 
-        public double Subtract(double n1, double n2)
+        public Fruit ExtractFromList(List<Fruit> fruits, string fruitName)
         {
-            double result = n1 - n2;
-            Console.WriteLine("Received Subtract({0},{1})", n1, n2);
-            Console.WriteLine("Return: {0}", result);
-            return result;
+            Fruit fruit = fruits.Find(f => f.Name == fruitName);
+            try
+            {
+                fruits.Remove(fruit);
+            }
+            catch (Exception)
+            {
+                fruit = null;
+            }
+            return fruit;
+            
         }
 
-        public double Multiply(double n1, double n2)
+        public int CountList(List<Fruit> fruits)
         {
-            double result = n1 * n2;
-            Console.WriteLine("Received Multiply({0},{1})", n1, n2);
-            Console.WriteLine("Return: {0}", result);
-            return result;
+            return fruits.Count;
+        }
+        public List<Fruit> CreateList()
+        {
+            List<Fruit> Fruits = new List<Fruit>();
+            Fruits.Add(CreateFruit("Apple"));
+            Fruits.Add(CreateFruit("Banana"));
+            Fruits.Add(CreateFruit("Strawberry"));
+            return Fruits;
         }
 
-        public double Divide(double n1, double n2)
-        {
-            double result = n1 / n2;
-            Console.WriteLine("Received Divide({0},{1})", n1, n2);
-            Console.WriteLine("Return: {0}", result);
-            return result;
-        }
+
     }
 }

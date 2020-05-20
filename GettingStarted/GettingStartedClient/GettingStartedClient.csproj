@@ -55,6 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\ServiceReference1\GettingStartedClient.ServiceReference1.Fruit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReference1\GettingStartedLib.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference1\Microsoft.ServiceModel.Samples.wsdl" />
     <None Include="Connected Services\ServiceReference1\Microsoft.ServiceModel.Samples.xsd">
       <SubType>Designer</SubType>
@@ -81,6 +87,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GettingStartedHost\GettingStartedHost.csproj">
+      <Project>{9a3986e0-44da-40b6-9bb0-0f439435fc5b}</Project>
+      <Name>GettingStartedHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GettingStartedLib\GettingStartedLib.csproj">
+      <Project>{f67014c1-7fbe-4229-877f-89761fbe8d05}</Project>
+      <Name>GettingStartedLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

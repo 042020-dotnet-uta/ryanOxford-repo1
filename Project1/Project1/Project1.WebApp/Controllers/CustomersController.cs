@@ -28,7 +28,7 @@ namespace Project1.WebApp.Controllers
             {
                 customers = customers.Where(s => s.FName.Contains(searchString)||s.LName.Contains(searchString)).OrderBy(t => t.FName).ThenBy(l => l.LName);
             }
-            return View(await customers.ToListAsync());
+            return View(await customers.OrderBy(n => n.FName).ThenBy(l => l.LName).ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -151,8 +151,6 @@ namespace Project1.WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost, ActionName("NewOrder")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> NewOrder(int? id)
         {
             if (id == null)
@@ -166,8 +164,7 @@ namespace Project1.WebApp.Controllers
             {
                 return NotFound();
             }
-            var order = new Order() { Customer = customer };
-            return RedirectToAction("Create", "Orders");
+            return RedirectToAction("Create","Orders", id);
         }
 
         private bool CustomerExists(int id)

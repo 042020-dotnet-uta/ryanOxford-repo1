@@ -18,6 +18,7 @@ namespace Project1.Data
         [Required]
         public Product Product { get; set; }
         [Required]
+        [Range(0,10000,ErrorMessage ="Must be greater than 0 and less than 10000")]
         public int Quantity { get; set; }
 
         public Inventory() { }

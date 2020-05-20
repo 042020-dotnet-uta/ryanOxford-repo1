@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="73bac177-182d-40a8-86fb-1a284359f24e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d7972a85-42f4-461c-bd52-50a905a37b99" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,11 @@
     <MetadataSource Address="http://localhost:8000/GettingStarted/CalculatorService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Microsoft.ServiceModel.Samples.wsdl" MetadataType="Wsdl" ID="ce2e9213-b6c9-4c1d-ae9b-8f13a49d0936" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8dd26fb4-2457-4583-b32e-dd863d903365" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
-    <MetadataFile FileName="Microsoft.ServiceModel.Samples.xsd" MetadataType="Schema" ID="2469963b-0e32-446c-9d9f-e3f383b62e2d" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b6b61473-3e85-4226-9225-b19da90c35ad" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
+    <MetadataFile FileName="Microsoft.ServiceModel.Samples.wsdl" MetadataType="Wsdl" ID="869ab988-3407-48cd-aaa5-139b54fb9b33" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="beeb79bf-3092-4efb-8c8d-7d252a11ea07" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
+    <MetadataFile FileName="Microsoft.ServiceModel.Samples.xsd" MetadataType="Schema" ID="5b6fbfeb-497f-43a3-84be-c29656fbc265" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="019cc7e0-343f-4eea-bc20-2850c46ec13d" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
+    <MetadataFile FileName="GettingStartedLib.xsd" MetadataType="Schema" ID="e1c0208f-e92b-4dbb-94fd-a5302d8c7a89" SourceId="1" SourceUrl="http://localhost:8000/GettingStarted/CalculatorService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -15,5 +15,7 @@ namespace Project1.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
+        public DbSet<TempOrder> TempOrders { get; set; }
+        public DbSet<TempOrderProduct> TempOrderProducts { get; set; }
     }
 }

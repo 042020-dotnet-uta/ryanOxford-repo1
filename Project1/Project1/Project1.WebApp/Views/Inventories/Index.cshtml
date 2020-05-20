@@ -9,10 +9,10 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<form asp-controller="Inventory" asp-action="Index">
+<form asp-controller="Inventories" asp-action="Index">
     <p>
         Location:
-        <select asp-for="ProductLocation" asp-items="Model.Locations">
+        <select asp-for="ProductLocation" asp-items="Model.Locations" method="get">
             <option value="">All</option>
         </select>
         Product Search: <input type="text" name="SearchString">
